@@ -121,7 +121,7 @@ with Transaction(doc, "Regroup") as t:
             List[ElementId]([ElementId(id) for id in list_of_member_ids])
         )
         new_group_ids.append(new_group.Id.IntegerValue)
-        new_group.GroupType.Name = group_names[index] + " AUTOMATICALLY"
+        new_group.GroupType.Name = group_names[index]
 
     t.Commit()
 
@@ -143,6 +143,6 @@ with Transaction(doc, "Regroup the parents") as t:
         new_group = doc.Create.NewGroup(
             List[ElementId]([ElementId(id) for id in list_of_member_ids])
         )
-        new_group.GroupType.Name = parent_group_names[index] + " AUTOMATICALLY"
+        new_group.GroupType.Name = parent_group_names[index]
 
     t.Commit()
